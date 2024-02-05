@@ -1,0 +1,20 @@
+.month-view {
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.current-month {
+    width: 40vw;
+    height: 60vh;
+}
+
+.events {
+}
+
+.current-month > .month > .days > .day:hover {
+    outline: 1px solid lightgrey;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px black;
+}

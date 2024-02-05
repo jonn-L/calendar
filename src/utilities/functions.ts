@@ -8,8 +8,26 @@ export function get_total_days(year: number, month: number): number {
     return last_day_of_month.getDate();
 }
 
-export function get_month_name(year: number, month: number): string {
-    const date = new Date(year, month, 1);
+export function get_month_name(month_number: number): string {
+    const months = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ];
 
-    return date.toLocaleString('default', {month: 'long'});
+    // Check if the input is a valid month number
+    if (month_number >= 0 && month_number < 12) {
+        return months[month_number];
+    } else {
+        return 'Invalid month';
+    }
 }
+
+export function get_month_number(month_name: string): number {
+    const months: string[] = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+
+    return months.indexOf(month_name);
+}
+

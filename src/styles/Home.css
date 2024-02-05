@@ -1,0 +1,12 @@
+h1 {
+    align-self: center;
+    justify-content: flex-start;
+}
+
+.months {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1.5rem;
+    padding: 1.5rem;
+}

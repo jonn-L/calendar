@@ -1,15 +1,6 @@
 .day {
-    width: 14%;
-    /* Add additional styling as needed */
-    padding: 10px;
-    box-sizing: border-box;
+    padding: 0.7rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-/*.day:hover {*/
-/*    border: 1px solid lightgrey;*/
-/*    border-radius: 10px;*/
-/*    box-shadow: 2px 2px 2px black;*/
-/*}*/
