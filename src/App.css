@@ -1,0 +1,22 @@
+#root {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    align-self: center;
+    justify-content: flex-start;
+}
+
+.months {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 35px;
+    padding: 35px;
+}
+
+
+

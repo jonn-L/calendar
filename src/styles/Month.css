@@ -1,0 +1,50 @@
+.month {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.month-name {
+    font-size: x-large;
+    justify-self: flex-start;
+}
+
+.month:hover {
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.days {
+    justify-self: center;
+    flex: 1;
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    /*align-items: center;*/
+    /*align-content: center;*/
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-flow: row;
+    justify-items: center;
+}
+
+.days div:nth-child(7n) {
+    color: red;
+}
+
+.days > :nth-child(n+1):nth-child(-n+7) {
+    border-bottom: 1px solid gray; /* Adjust the border properties as needed */
+}
+
+.offset {
+    width: 14%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.day-names {
+    font-weight: bold;
+    width: 14%;
+    padding: 10px;
+    text-align: center;
+}
