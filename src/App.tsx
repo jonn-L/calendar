@@ -10,8 +10,8 @@ function App() {
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Home/>} />
-                    <Route path="/:month_name" element={<MonthView current_year={current_year} />} />
+                    <Route path="/Home" element={<Home/>} />
+                    <Route path="/Home/:month_name" element={<MonthView current_year={current_year} />} />
                 </Routes>
             </BrowserRouter>
         </>

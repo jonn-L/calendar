@@ -1,16 +1,29 @@
 .month-view {
     height: 100vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 .current-month {
-    width: 40vw;
-    height: 60vh;
 }
 
 .events {
+    outline: 0.1rem gray solid;
+    padding: 2rem;
+    width: 30vw;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.events > div {
+    padding: 1rem;
+    border-bottom: 1px gray solid;
+}
+
+.events > div:last-child {
+    border-bottom: none;
 }
 
 .current-month > .month > .days > .day:hover {

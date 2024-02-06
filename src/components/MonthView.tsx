@@ -23,21 +23,20 @@ function MonthView({ current_year } : {current_year: number}) {
 
     return (
         <div className="month-view">
-            <div className="current-month"><Month  month_number={month_number}
-                                                   total_days={get_total_days(current_year, month_number)}
-                                                   month_offset={get_month_offset(1, month_number, current_year) - 1}/>
+            <div className="current-month">
+                <Month  month_number={month_number}
+                        total_days={get_total_days(current_year, month_number)}
+                        month_offset={get_month_offset(1, month_number, current_year) - 1}/>
             </div>
 
-            <div className="events">
-                <ul>
-                    <li>Event 1</li>
-                    <li>Event 2</li>
-                    <li>Event 3</li>
-                    <li>Event 4</li>
-                    <li>Event 5</li>
-                    <li>Event 6</li>
-                </ul>
-            </div>
+            <ul className="events">
+                <div>Event 1</div>
+                <div>Event 2</div>
+                <div>Event 3</div>
+                <div>Event 4</div>
+                <div>Event 5</div>
+                <div>Event 6</div>
+            </ul>
         </div>
     );
 }

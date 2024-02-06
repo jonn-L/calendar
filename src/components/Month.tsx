@@ -23,15 +23,14 @@ function Month({ month_number, total_days, month_offset }: { month_number: numbe
     const full_list = [...list_day_names, ...list_offsets, ...list_days];
 
     const handleClick = () => {
-        console.log("GENI")
-        window.location.href = `/${get_month_name(month_number)}`
+        window.location.href = `/Home/${get_month_name(month_number)}`
     }
 
     return (
-        <div className="month" onClick={handleClick}>
-            <h1 className="month-name">{get_month_name(month_number)}</h1>
+        <button className="month" onClick={handleClick}>
+            <div className="month-name">{get_month_name(month_number)}</div>
             <div className="days">{full_list}</div>
-        </div>
+        </button>
     )
 }
 

@@ -1,12 +1,13 @@
-.month {
+.months > .month {
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 .month-name {
+    text-align: center;
+    padding-bottom: 1rem;
     font-size: x-large;
-    justify-self: flex-start;
+    justify-self: center;
 }
 
 .months > .month:hover {
@@ -18,15 +19,13 @@
 .days {
     justify-self: center;
     flex: 1;
-    /*display: flex;*/
-    /*flex-wrap: wrap;*/
-    /*align-items: center;*/
-    /*align-content: center;*/
+/*1    display: flex;*/
+/*    flex-wrap: wrap;*/
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(7, 1fr);
     justify-items: center;
-    grid-gap: 0.7rem;
+    gap: 0.5rem;
 }
 
 .days div:nth-child(7n) {
