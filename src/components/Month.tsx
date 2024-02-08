@@ -1,15 +1,20 @@
 import "../styles/Month.css"
 import Day from "./Day.tsx"
-import { get_month_name } from "../utilities/functions.ts"
+import { get_month_name, get_month_offset, get_total_days } from "../utilities/functions.ts"
+import { useNavigate } from "react-router-dom";
 
-function Month({ month_number, total_days, month_offset }: { month_number: number; total_days: number; month_offset: number }) {
-    if (month_offset == -1) {
-        month_offset = 6;
-    }
+function Month({ year, month_number }: { year: number, month_number: number }) {
+    const navigate = useNavigate()
+    const total_days = get_total_days(year, month_number + 1);
+    const month_offset = get_month_offset(1, month_number, year) - 1;
 
     const list_days = []
     for (let day = 1; day <= total_days; day++) {
-        list_days.push(<Day key={"day" + day} day_num={day}/>);
+
+        list_days.push(<Day key={"day" + day}
+                            year={year}
+                            month_number={month_number}
+                            day_num={day}/>);
     }
     const list_offsets = [];
     for (let i = 0; i < month_offset; i++) {
@@ -23,7 +28,8 @@ function Month({ month_number, total_days, month_offset }: { month_number: numbe
     const full_list = [...list_day_names, ...list_offsets, ...list_days];
 
     const handleClick = () => {
-        window.location.href = `/Home/${get_month_name(month_number)}`
+        console.log("GENI")
+        navigate(`/Home/${get_month_name(month_number)}`)
     }
 
     return (

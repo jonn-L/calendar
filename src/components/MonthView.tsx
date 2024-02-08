@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/Monthview.css'
 import Month from "./Month.tsx";
-import {get_month_number, get_total_days, get_month_offset} from "../utilities/functions.ts";
+import { get_month_number } from "../utilities/functions.ts";
 
 function MonthView({ current_year } : {current_year: number}) {
     const { month_name } = useParams();
@@ -17,25 +17,25 @@ function MonthView({ current_year } : {current_year: number}) {
     }, [month_name, navigate]);
 
     if (month_number == -1) {
-        // Return null or an error message if you don't want to render the component for invalid months
         return null;
+    }
+
+    function go_back() {
+        navigate('/Home')
     }
 
     return (
         <div className="month-view">
             <div className="current-month">
-                <Month  month_number={month_number}
-                        total_days={get_total_days(current_year, month_number)}
-                        month_offset={get_month_offset(1, month_number, current_year) - 1}/>
+                <button className="go-back" onClick={go_back} >{"<"}</button>
+                <Month month_number={month_number}
+                       year={current_year}/>
             </div>
 
             <ul className="events">
                 <div>Event 1</div>
                 <div>Event 2</div>
                 <div>Event 3</div>
-                <div>Event 4</div>
-                <div>Event 5</div>
-                <div>Event 6</div>
             </ul>
         </div>
     );

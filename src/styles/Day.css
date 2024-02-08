@@ -1,10 +1,22 @@
 .day {
-    padding: 0.7rem;
+    padding: 0.2rem;
+    cursor: pointer;
+    height: 80%;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+#not-today {
+    border-bottom: dodgerblue 1px solid;
+}
+
 #today {
+    border-radius: 1rem;
     background: white;
+    color: black;
+    text-underline-color: blue;
+    text-underline-position: below;
+    text-underline-style: dash;
 }

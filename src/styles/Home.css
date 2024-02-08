@@ -6,7 +6,7 @@
 }
 
 button {
-    font-size: xx-large;
+    font-size: large;
     font-weight: bold;
     align-self: center;
 }
@@ -20,10 +20,10 @@ button {
 }
 
 .months {
-    padding: 1rem 3rem 1rem;
+    padding: 1rem;
     flex: 1;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: 3rem;
+    gap: 1rem;
 }

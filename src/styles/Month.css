@@ -1,31 +1,28 @@
 .months > .month {
+    border-radius: 2rem;
     display: flex;
     flex-direction: column;
+    line-height: 1.5rem;
 }
 
 .month-name {
+    font-size: large;
     text-align: center;
-    padding-bottom: 1rem;
-    font-size: x-large;
+    /*padding: 0.5rem 0 0.5rem 0;*/
     justify-self: center;
-}
-
-.months > .month:hover {
-    outline: 1px solid lightgrey;
-    border-radius: 1rem;
-    box-shadow: 0.3rem 0.3rem 0.3rem black;
 }
 
 .days {
+    margin: 0.14rem;
+    font-size: smaller;
     justify-self: center;
     flex: 1;
-/*1    display: flex;*/
-/*    flex-wrap: wrap;*/
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(7, 1fr);
     justify-items: center;
     gap: 0.5rem;
+    /*padding-bottom: 0.5rem;*/
 }
 
 .days div:nth-child(7n) {
@@ -33,12 +30,13 @@
 }
 
 .offset {
-    padding: 0.7rem;
+    padding: 0.2rem;
 }
 
 .day-names {
+    font-size: small;
     font-weight: bold;
-    padding: 0.7rem;
+    padding: 0.2rem;
     text-align: center;
     border-bottom: gray 1px solid;
 }
