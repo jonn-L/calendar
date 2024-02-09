@@ -9,7 +9,8 @@ function Home({ currentYear, setCurrentYear} : {
     for (let month_number = 0; month_number < 12; month_number++) {
         list_months.push(<Month key={"month" + month_number}
                                 year={currentYear}
-                                month_number={month_number}/>)
+                                month_number={month_number}
+                                setCurrentDay={() => {}}/>)
     }
 
     function previous_year() {

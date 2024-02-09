@@ -1,5 +1,11 @@
-export function get_month_offset(day: number, month: number, year: number): number {
-    return new Date(year, month, day, 0, 0, 0, 0).getDay();
+export function get_month_offset(month: number, year: number): number {
+    const date = new Date(year, month, 1);
+
+    let firstDayOfWeek = date.getDay();
+
+    firstDayOfWeek = (firstDayOfWeek + 6) % 7;
+
+    return firstDayOfWeek;
 }
 
 export function get_total_days(year: number, month: number): number {

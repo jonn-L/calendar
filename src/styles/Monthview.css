@@ -43,25 +43,27 @@
 }
 
 .events {
+    padding: 0 1rem 0 1rem;
     outline: 0.1rem gray solid;
-    padding: 2rem;
     width: 30vw;
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
 }
 
-.events > div {
-    padding: 1rem;
+.event {
+    padding: 1rem 0 1rem 0;
     border-bottom: 1px gray solid;
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-desc {
+    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .events > div:last-child {
     border-bottom: none;
-}
-
-.current-month > .month > .days > .day:hover {
-    outline: 1px solid lightgrey;
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px black;
 }

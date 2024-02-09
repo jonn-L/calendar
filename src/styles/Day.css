@@ -8,15 +8,17 @@
     align-items: center;
 }
 
-#not-today {
+.has-event {
     border-bottom: dodgerblue 1px solid;
 }
 
-#today {
+.today {
     border-radius: 1rem;
     background: white;
     color: black;
-    text-underline-color: blue;
-    text-underline-position: below;
-    text-underline-style: dash;
+}
+
+.current-month > .month > .days > .day:hover {
+    border-radius: 1rem;
+    outline: 1px gray solid;
 }
