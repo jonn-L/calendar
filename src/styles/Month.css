@@ -8,7 +8,6 @@
 .month-name {
     font-size: large;
     text-align: center;
-    /*padding: 0.5rem 0 0.5rem 0;*/
     justify-self: center;
 }
 
@@ -21,8 +20,7 @@
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(7, 1fr);
     justify-items: center;
-    gap: 0.5rem;
-    /*padding-bottom: 0.5rem;*/
+    gap: 0.3rem;
 }
 
 .days div:nth-child(7n) {

@@ -1,43 +1,44 @@
 import "../styles/Day.css"
 
-function Day({ year, month_number, day_num, setCurrentDay }: {
+function Day({ year, month, day, setCurrentDay, selectedDay }: {
     year: number,
-    month_number: number,
-    day_num: number,
+    month: number,
+    day: number,
     setCurrentDay: (currentDay: number) => void
+    selectedDay: number
 }) {
-    const date_today = new Date()
+    const dateToday = new Date()
 
     function set_class() {
-        let class_name = "day"
-        if ((date_today.getFullYear()) === year &&
-            (date_today.getMonth() === (month_number) &&
-            (date_today.getDate() === day_num))) {
-            class_name +=" today";
+        let className = "day"
+
+        if ((dateToday.getFullYear()) === year &&
+            (dateToday.getMonth() === (month) &&
+            (dateToday.getDate() === day))) {
+                className +=" today";
         }
         
-        const stored_events = localStorage.getItem('events');
-        if (stored_events) {
-            const events = JSON.parse(stored_events);
-            if (events[year] &&
-                events[year][month_number] &&
-                events[year][month_number][day_num] &&
-                events[year][month_number][day_num].length > 0) {
-                    class_name += " has-event";
-                }
+        const key = `${year}-${month}-${day}`;
+        const events = localStorage.getItem(key);
+        if (events) {
+            className += " has-event";
+        }
+
+        if (day === selectedDay) {
+            className += " selected";
         }
         
-        return class_name;
+        return className;
     }
 
     function select_day() {
-        setCurrentDay(day_num);
-        console.log(`This is the current day: ${day_num}`)
+        setCurrentDay(day);
+        console.log(`This is the current day: ${day}`)
     }    
     
     return (
         <div onClick={select_day} className={set_class()}>
-            {day_num}
+            {day}
         </div>
     )
 }

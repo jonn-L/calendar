@@ -6,11 +6,12 @@ function Home({ currentYear, setCurrentYear} : {
     setCurrentYear: (currentYear: number) => void
 }) {
     const list_months = []
-    for (let month_number = 0; month_number < 12; month_number++) {
-        list_months.push(<Month key={"month" + month_number}
+    for (let month = 0; month < 12; month++) {
+        list_months.push(<Month key={"month" + month}
                                 year={currentYear}
-                                month_number={month_number}
-                                setCurrentDay={() => {}}/>)
+                                month={month}
+                                setCurrentDay={() => {}}
+                                selectedDay={1}/>)
     }
 
     function previous_year() {

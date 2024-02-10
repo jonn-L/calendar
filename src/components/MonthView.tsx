@@ -5,96 +5,85 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { get_month_number } from "../utilities/functions.ts";
 
 
-function MonthView({ current_year } : {current_year: number}) {
-    const { month_name } = useParams();
+function MonthView({ currentYear } : {currentYear: number}) {
+    const { monthName } = useParams();
     const navigate = useNavigate();
-    const month_number = get_month_number(month_name);
+    const currentMonth = get_month_number(monthName);
     const [currentDay, setCurrentDay] = useState(1);
-    const [events, setEvents] = useState<{ 
-        [year: number]: { [month: number]: { [day: number]: string[] } } }>({});
+    const [currentEvents, setCurrentEvents] = useState<string[]>([]);
     const [newEvent, setNewEvent] = useState('');
 
     useEffect(() => {
-        if (month_number == -1) {
+        if (currentMonth == -1) {
             navigate('/');
         }
-    }, [month_number, navigate]);
+    }, [currentMonth, navigate]);
 
     useEffect(() => {
-        const stored_events = localStorage.getItem('events');
-        if (stored_events) {
-            setEvents(JSON.parse(stored_events));
+        const currentKey = `${currentYear}-${currentMonth}-${currentDay}`;
+        const storedEvents = localStorage.getItem(currentKey);
+        if (storedEvents) {
+            setCurrentEvents(JSON.parse(storedEvents));
+        } else {
+            setCurrentEvents([]);
         }
-    }, []);
+    }, [currentYear, currentMonth, currentDay]);
 
-    if (month_number == -1) {
+    if (currentMonth == -1) {
         return null;
     }
 
     function add_event() {
-        const update_events = {
-            ...events,
-            [current_year]: {
-              ...(events[current_year] || {}),
-              [month_number]: {
-                ...(events[current_year]?.[month_number] || {}),
-                [currentDay]: [
-                  ...(events[current_year]?.[month_number]?.[currentDay] || []),
-                  newEvent
-                ]
-              }
-            }
-        };
-        setEvents(update_events);
-        localStorage.setItem('events', JSON.stringify(update_events));
+        const updatedCurrentEvents = [...currentEvents, newEvent];
+        setCurrentEvents(updatedCurrentEvents);
+        const currentKey = `${currentYear}-${currentMonth}-${currentDay}`;
+        localStorage.setItem(currentKey, JSON.stringify(updatedCurrentEvents));
         setNewEvent('');
     }
 
-    function delete_event(index:number) {
-        const update_events = { ...events };
-        if (update_events[current_year] && 
-            update_events[current_year][month_number] && 
-            update_events[current_year][month_number][currentDay]) {
-            update_events[current_year][month_number][currentDay].splice(index, 1);
-          setEvents(update_events);
-          localStorage.setItem('events', JSON.stringify(update_events));
-        }    
+    function delete_event(index: number) {
+        const currentKey = `${currentYear}-${currentMonth}-${currentDay}`;
+        const updatedCurrentEvents = [...currentEvents];
+        updatedCurrentEvents.splice(index, 1);
+        if (updatedCurrentEvents.length === 0) {
+            localStorage.removeItem(currentKey);
+        } else {
+            localStorage.setItem(currentKey, JSON.stringify(updatedCurrentEvents));   
+        }
+        setCurrentEvents(updatedCurrentEvents);
     }
 
     function go_back() {
-        navigate('/Home')
-    }
-
-    function list_events() {
-        const events_list = events[current_year]?.[month_number]?.[currentDay] || []
-
-        return events_list
+        navigate('/')
     }
 
     return (
         <div className="month-view">
             <div className="current-month">
                 <button className="go-back" onClick={go_back} >{"<"}</button>
-                <Month month_number={month_number}
-                       year={current_year}
-                       setCurrentDay={setCurrentDay}/>
+                <Month month={currentMonth}
+                       year={currentYear}
+                       setCurrentDay={setCurrentDay}
+                       selectedDay={currentDay}/>
             </div>
 
-            <div>
+            <div className="event-view">
+                <input
+                    type="text"
+                    onChange={(e) => {setNewEvent(e.target.value)}}    
+                />
+                <button onClick={add_event} className="add-event">+</button>
+
                 <div className="events">
-                    {list_events().map((event, index) => (
+                    {currentEvents.map((event, index) => (
                         <div key={index} className="event">
                             <div className="event-desc">{event}</div>
-                            <button onClick={() => delete_event(index)} className="delete-event">-</button>
+                            <button onClick={() => delete_event(index)} 
+                                    className="delete-event">
+                            -</button>
                         </div>
                     ))}
                 </div>
-
-                <input
-                    type="text"
-                    onChange={(e) => setNewEvent(e.target.value)}
-                />
-                <button onClick={add_event}>Add Event</button>
             </div>
         </div>
     );

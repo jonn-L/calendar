@@ -9,16 +9,21 @@
 }
 
 .has-event {
-    border-bottom: dodgerblue 1px solid;
+    border-bottom: dodgerblue 0.2rem solid;
 }
 
 .today {
-    border-radius: 1rem;
+    border-radius: 0.8rem;
     background: white;
     color: black;
 }
 
 .current-month > .month > .days > .day:hover {
-    border-radius: 1rem;
+    border-radius: 0.8rem;
     outline: 1px gray solid;
+}
+
+.month-view > .current-month > .month > .days > .selected {
+    border-radius: 0.8rem;
+    outline: 1px white solid;
 }

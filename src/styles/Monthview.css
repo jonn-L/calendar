@@ -67,3 +67,13 @@
 .events > div:last-child {
     border-bottom: none;
 }
+
+.event-view {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.add-event {
+    align-self: flex-end;
+}
