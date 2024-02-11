@@ -140,7 +140,7 @@
     justify-content: center;
 }
 
-.currentMonth > button:first-child {
+.currentMonth > div {
     width: 24vw;
     height: 30vh;
     transform: scale(1.2);

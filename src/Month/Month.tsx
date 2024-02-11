@@ -49,10 +49,10 @@ function Month({ year, month, selectedDay, setSelectedDay }: {
     }
 
     return (
-        <button className={styles.month} onClick={handleClick}>
+        <div className={styles.month} onClick={handleClick}>
             <h1 className={styles.monthName}>{get_month_name(month)}</h1>
             <ul className={styles.days}>{list_days()}</ul>
-        </button>
+        </div>
     )
 }
 

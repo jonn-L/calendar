@@ -94,6 +94,7 @@ header {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
     justify-items: center;
+    align-items: center ;
     gap: 0.5rem;
 }
 
@@ -102,6 +103,6 @@ header {
     height: 30vh;
 }
 
-.months > li > button > ul > li > button {
+.months > li > div > ul > li > button {
     outline: none;
 }
