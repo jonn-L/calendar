@@ -34,8 +34,8 @@ function Home({ currentYear, selectedDay, setCurrentYear, setSelectedDay} : {
     }
 
     return (
-        <main className={styles.home}>
-            <header className={styles.header}>
+        <main>
+            <header>
                 <button className={styles.changeYear} onClick={previous_year}>{"<"}</button>
                 <h1 className={styles.currentYear}>{currentYear}</h1>
                 <button className={styles.changeYear} onClick={next_year}>{">"}</button>

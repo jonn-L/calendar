@@ -36,12 +36,9 @@ function Day({ year, month, day, selectedDay, setSelectedDay }: {
     }
     
     return (
-        <>
-            <button onClick={select_day} className={set_class()}>
-                {day}
-            </button>
-        </>
-
+        <button onClick={select_day} className={set_class()}>
+            {day}
+        </button>
     )
 }
 
