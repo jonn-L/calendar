@@ -1,14 +1,20 @@
 .month {
+    height: 100%;
+    width: 100%;
     padding: 1rem;
     display: flex;
     flex-direction: column;
+    gap: 0.3rem;
+    background-color: #1a1a1a;
+    color: white;
 }
 
 .days {
+
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(7, 1fr);
-    justify-items: center;
+    justify-items: center;  
 }
 
 .days > li, .days > li > button {
@@ -25,11 +31,11 @@
 
 .monthName {
     font-weight: bolder;
-    font-size: x-large;
+    font-size: medium;
 }
 
 .dayNames {
     font-weight: bold;
-    font-size: large;
     border-bottom: 1px gray solid;
+    font-size: small;
 }

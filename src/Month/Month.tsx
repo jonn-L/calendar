@@ -18,7 +18,8 @@ function Month({ year, month, selectedDay, setSelectedDay }: {
         const day_names = ["M", "T", "W", "T", "F", "S", "S"]
         const listDayNames = [];
         for (let i = 0; i < 7; i++) {
-            listDayNames.push(<li key={day_names[i] + i} className={styles.dayNames}>{day_names[i]}</li>);
+            listDayNames.push(<li key={day_names[i] + i} 
+                                  className={styles.dayNames}>{day_names[i]}</li>);
         }
 
         const listOffsets = [];

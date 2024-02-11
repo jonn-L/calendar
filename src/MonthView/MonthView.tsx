@@ -10,19 +10,25 @@ function MonthView({ year, selectedDay, setSelectedDay } : {
     selectedDay: number,
     setSelectedDay: (selectedDay: number) => void
 }) {
-    const { monthName } = useParams();
+    const monthName = String(useParams<{ monthName?: string }>().monthName);    
     const navigate = useNavigate();
-    const month = get_month_number(monthName);
     const [currentEvents, setCurrentEvents] = useState<string[]>([]);
     const [newEvent, setNewEvent] = useState('');
     const [showEventAddField, setShowEventAddField] = useState(false);
     const [showEvents, setShowEvents] = useState(currentEvents.length !== 0)
-
+    
+    let month: number = get_month_number(monthName);
     useEffect(() => {
         if (month == -1) {
             navigate('/');
         }
-    }, [month, navigate]);
+    }, [month]);
+
+    useEffect(() => {
+        if (currentEvents.length !== 0) {
+            setShowEvents(true);
+        }
+    }, [currentEvents])
 
     useEffect(() => {
         const currentKey = `${year}-${month}-${selectedDay}`;

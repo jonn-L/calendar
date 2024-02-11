@@ -71,3 +71,12 @@ h1, ul, li, p, input {
   all: unset;
 }
 
+#root {
+  background-color: #242424;
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  /* background-color: #242424; */
+}

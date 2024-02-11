@@ -1,5 +1,6 @@
 import styles from "./home.module.css";
 import Month from "../Month/Month.tsx";
+import { useEffect } from "react";
 
 function Home({ currentYear, selectedDay, setCurrentYear, setSelectedDay} : {
     currentYear: number,
@@ -18,6 +19,10 @@ function Home({ currentYear, selectedDay, setCurrentYear, setSelectedDay} : {
                         </li>)
     }
 
+    useEffect(() => {
+        setSelectedDay(1);
+    }, []);
+
     function previous_year() {
         currentYear--
         setCurrentYear(currentYear);
@@ -31,9 +36,9 @@ function Home({ currentYear, selectedDay, setCurrentYear, setSelectedDay} : {
     return (
         <main className={styles.home}>
             <header className={styles.header}>
-                <button onClick={previous_year}>{"<"}</button>
+                <button className={styles.changeYear} onClick={previous_year}>{"<"}</button>
                 <h1 className={styles.currentYear}>{currentYear}</h1>
-                <button onClick={next_year}>{">"}</button>
+                <button className={styles.changeYear} onClick={next_year}>{">"}</button>
             </header>
             <ul className={styles.months}>{list_months}</ul>
         </main>

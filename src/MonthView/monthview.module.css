@@ -15,6 +15,9 @@
 }
 
 .currentMonth > button:first-child {
+    transform: scale(1.2);
+    transform-origin: right;
+    margin-left: auto;
     border: none;
     cursor: auto;
 }
@@ -33,28 +36,39 @@
     margin: 1rem 0 0 1rem;
     justify-content: flex-start;
     align-self: flex-start;
+
+    background-color: #1a1a1a;
+    color: white;
 }
 
 .currentMonth > .addEvent {
     align-self: flex-start;
+    margin-right: auto;
+
+    background-color: #1a1a1a;
+    color: white;
 }
 
 .currentEvents > .addEvent {
     align-self: flex-end;
+
+    background-color: #1a1a1a;
+    color: white;
 }
 
 .events {
     padding: 0 1rem 0 1rem;
     border-radius: 1rem;
+    background-color: #1a1a1a;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
-    background-color: #1a1a1a;
+
 }
 
-.event {
-    flex: 1;
+.events > li {
+    height: 3vh;
     padding: 1rem 0 1rem 0;
     border-bottom: 1px gray solid;
     display: flex;
@@ -71,7 +85,7 @@
 }
 
 .events > li:last-child {
-    border-bottom: none;
+    border-bottom: 1px #1a1a1a solid;
 }
 
 .eventView {
