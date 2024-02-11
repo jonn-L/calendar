@@ -1,17 +1,23 @@
-import "./App.css";
-import MonthView from "./components/MonthView.tsx";
+import MonthView from "./MonthView/MonthView.tsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./components/Home.tsx"
-import {useState} from "react";
+import Home from "./Home/Home.tsx"
+import { useState } from "react";
 
 function App() {
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+    const [selectedDay, setSelectedDay] = useState(1);
+
     return (
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Home currentYear={currentYear} setCurrentYear={setCurrentYear}/>}/>
-                    <Route path="/:monthName" element={<MonthView currentYear={currentYear}/>}/>
+                    <Route path="/" element={<Home currentYear={currentYear} 
+                                                   selectedDay={selectedDay}
+                                                   setCurrentYear={setCurrentYear}
+                                                   setSelectedDay={setSelectedDay}/>}/>
+                    <Route path="/:monthName" element={<MonthView year={currentYear}
+                                                                  selectedDay={selectedDay}
+                                                                  setSelectedDay={setSelectedDay}/>}/>
                 </Routes>
             </BrowserRouter>
         </>

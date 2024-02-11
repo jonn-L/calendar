@@ -1,0 +1,12 @@
+.today {
+    background-color: white;
+    color: black;
+}
+
+.hasEvent {
+    border-bottom: 2px dodgerblue solid;
+}
+
+.selected {
+    outline: white 1px solid;
+}

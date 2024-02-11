@@ -1,0 +1,35 @@
+.month {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    justify-items: center;
+}
+
+.days > li, .days > li > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 90%;
+}
+
+.days > :nth-child(7n), .days > li:nth-child(7n) button {
+    color: red;
+}
+
+.monthName {
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+.dayNames {
+    font-weight: bold;
+    font-size: large;
+    border-bottom: 1px gray solid;
+}

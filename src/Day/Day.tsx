@@ -1,45 +1,44 @@
-import "../styles/Day.css"
+import styles from "./day.module.css"
 
-function Day({ year, month, day, setCurrentDay, selectedDay }: {
+function Day({ year, month, day, selectedDay, setSelectedDay }: {
     year: number,
     month: number,
     day: number,
-    setCurrentDay: (currentDay: number) => void
     selectedDay: number
+    setSelectedDay: (selectedDay: number) => void
 }) {
     const dateToday = new Date()
 
     function set_class() {
-        let className = "day"
+        let className = styles.day
 
         if ((dateToday.getFullYear()) === year &&
             (dateToday.getMonth() === (month) &&
             (dateToday.getDate() === day))) {
-                className +=" today";
+                className += ` ${styles.today}`;
         }
         
         const key = `${year}-${month}-${day}`;
         const events = localStorage.getItem(key);
         if (events) {
-            className += " has-event";
+            className += ` ${styles.hasEvent}`;
         }
 
         if (day === selectedDay) {
-            className += " selected";
+            className += ` ${styles.selected}`;
         }
         
         return className;
     }
 
     function select_day() {
-        setCurrentDay(day);
-        console.log(`This is the current day: ${day}`)
-    }    
+        setSelectedDay(day);
+    }
     
     return (
-        <div onClick={select_day} className={set_class()}>
+        <button onClick={select_day} className={set_class()}>
             {day}
-        </div>
+        </button>
     )
 }
 
