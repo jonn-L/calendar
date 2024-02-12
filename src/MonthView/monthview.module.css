@@ -1,116 +1,3 @@
-/* .monthView {
-    width: 100%;
-    height: 100%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.currentMonth {
-    flex-basis: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.currentMonth > button:first-child {
-    transform: scale(1.2);
-    transform-origin: right;
-    margin-left: auto;
-    border: none;
-    cursor: auto;
-}
-
-.currentEvents {
-    margin-right: auto;
-    padding: 1rem 10rem 1rem 10rem;
-    flex-basis: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.back {
-    margin: 1rem 0 0 1rem;
-    justify-content: flex-start;
-    align-self: flex-start;
-
-    background-color: #1a1a1a;
-    color: white;
-}
-
-.currentMonth > .addEvent {
-    align-self: flex-start;
-    margin-right: auto;
-
-    background-color: #1a1a1a;
-    color: white;
-}
-
-.currentEvents > .addEvent {
-    align-self: flex-end;
-
-    background-color: #1a1a1a;
-    color: white;
-}
-
-.events {
-    padding: 0 1rem 0 1rem;
-    border-radius: 1rem;
-    background-color: #1a1a1a;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: center;
-
-}
-
-.events > li {
-    height: 3vh;
-    padding: 1rem 0 1rem 0;
-    border-bottom: 1px gray solid;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.eventDesc {
-    flex: 1;
-    padding-left: 1rem;
-    text-align: center;
-    display: flex;
-    align-items: center;
-}
-
-.events > li:last-child {
-    border-bottom: 1px #1a1a1a solid;
-}
-
-.eventView {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.currentMonth > .month > .days > li > .selected {
-    outline: white 1px solid;
-}
-
-.addEventField {
-    padding-left: 1rem;
-    height: 100%;
-    width: 100%;
-    border: none;
-    outline: none;
-    background-color: #1a1a1a;
-} */
-
 .monthView {
     height: 100%;
     width: 100%;
@@ -201,10 +88,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 
 .eventDesc {
     flex: 1;
+    overflow: hidden;
     padding-left: 1rem;
     text-align: center;
     display: flex;
@@ -243,4 +132,8 @@
     font-size: medium;
     background-color: #1a1a1a;
     color: white;
+}
+
+.event, .addEventField {
+    font-size: medium;
 }

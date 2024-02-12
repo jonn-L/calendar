@@ -27,6 +27,8 @@ function MonthView({ year, selectedDay, setSelectedDay } : {
     useEffect(() => {
         if (currentEvents.length !== 0) {
             setShowEvents(true);
+        } else {
+            setShowEvents(false);
         }
     }, [currentEvents])
 
